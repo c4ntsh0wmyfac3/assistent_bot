@@ -9,7 +9,7 @@ TOKEN=getenv('TOKEN')
 bot = Bot(TOKEN)
 dp = Dispatcher()
 
-@dp.message(CommandStart)
+@dp.message(CommandStart())
 async def cmd_start(message: types.Message):
     await message.answer("Привет! я ваш ассистент.")
 

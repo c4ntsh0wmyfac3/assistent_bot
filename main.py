@@ -2,13 +2,14 @@ import asyncio
 from dotenv import load_dotenv
 from os import getenv
 from aiogram import Bot, Dispatcher, types
+from aiogram.filters import Command, CommandStart
 
 load_dotenv()
 TOKEN=getenv('TOKEN')
 bot = Bot(TOKEN)
 dp = Dispatcher()
 
-@dp.message
+@dp.message(CommandStart)
 async def cmd_start(message: types.Message):
     await message.answer("Привет! я ваш ассистент.")
 

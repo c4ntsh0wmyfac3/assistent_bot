@@ -13,6 +13,11 @@ dp = Dispatcher()
 async def cmd_start(message: types.Message):
     await message.answer("Привет! я ваш ассистент.")
 
+@dp.message()
+async def cmd_echo(message: types.Message):
+    await message.answer(message.text)
+
+
 async def main() -> None:
     await dp.start_polling(bot)
 

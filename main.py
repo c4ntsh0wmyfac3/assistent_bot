@@ -4,7 +4,7 @@ from os import getenv
 from aiogram import Bot, Dispatcher, types
 
 load_dotenv()
-bot = Bot(token=getenv('TOKEN'))
+bot = Bot(token=getenv('TOKEN'): str)
 dp = Dispatcher()
 
 @dp.message

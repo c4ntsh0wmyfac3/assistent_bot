@@ -13,11 +13,6 @@ dp = Dispatcher()
 
 dp.include_router(user_private_router)
 
-@dp.message()
-async def cmd_echo(message: types.Message):
-    await message.answer(message.text)
-
-
 async def main() -> None:
     await dp.start_polling(bot)
 

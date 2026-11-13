@@ -8,4 +8,4 @@ user_private_router.message.filter(ChatTypeFilter(['private']))
 
 @user_private_router.message(CommandStart())
 async def cmd_start(message: types.Message):
-    await message.answer("Я ваш помощник по вопросам телеграм ботов и автоматизации")
+    await message.answer("Я ваш помощник по вопросам телеграм ботов и автоматизации", reply_markup=reply.kb_start)

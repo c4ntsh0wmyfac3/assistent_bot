@@ -13,10 +13,6 @@ dp = Dispatcher()
 
 dp.include_router(user_private_router)
 
-@dp.message(CommandStart())
-async def cmd_start(message: types.Message):
-    await message.answer("Привет! я ваш ассистент.")
-
 @dp.message()
 async def cmd_echo(message: types.Message):
     await message.answer(message.text)

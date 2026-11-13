@@ -4,10 +4,14 @@ from os import getenv
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command, CommandStart
 
+from handlers.user_private import user_private_router
+
 load_dotenv()
 TOKEN=getenv('TOKEN')
 bot = Bot(TOKEN)
 dp = Dispatcher()
+
+dp.include_router(user_private_router)
 
 @dp.message(CommandStart())
 async def cmd_start(message: types.Message):

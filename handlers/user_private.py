@@ -10,6 +10,6 @@ user_private_router.message.filter(ChatTypeFilter(['private']))
 async def cmd_start(message: types.Message):
     await message.answer("Я ваш помощник по вопросам телеграм ботов и автоматизации", reply_markup=reply.kb_start)
 
-@user_private_router.message(or_f(F.text.lower() == "Заказать Бот"))
+@user_private_router.message(F.text.lower() == "Заказать Бот")
 async def cmd_order_bot(message: types.Message):
     await message.answer("Вот ваш бот!")

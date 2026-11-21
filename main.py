@@ -8,13 +8,15 @@ from handlers.user_private import user_private_router
 
 load_dotenv()
 TOKEN=getenv('TOKEN')
+ALLOWED_UPDATES=['message', 'edited_message']
 bot = Bot(TOKEN)
 dp = Dispatcher()
 
 dp.include_router(user_private_router)
 
 async def main() -> None:
-    await dp.start_polling(bot)
+    await bot.delete_webhook(drop_pending_updates=True)
+    await dp.start_polling(bot, allowed_updates=ALLOWED_UPDATES)
 
 if __name__ == '__main__':
     asyncio.run(main())

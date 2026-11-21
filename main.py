@@ -17,7 +17,7 @@ dp.include_router(user_private_router)
 
 async def main() -> None:
     await bot.delete_webhook(drop_pending_updates=True)
-    await bot.set_my_commands(commands=bot_cmds.private)
+    await bot.set_my_commands(commands=bot_cmds.private, scope=types.BotCommandScopeAllPrivateChats)
     await dp.start_polling(bot, allowed_updates=ALLOWED_UPDATES)
 
 if __name__ == '__main__':

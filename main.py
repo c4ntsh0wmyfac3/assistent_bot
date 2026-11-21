@@ -5,7 +5,7 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command, CommandStart
 
 from handlers.user_private import user_private_router
-from common import bot_cmds
+from common.bot_cmds import private
 
 load_dotenv()
 TOKEN=getenv('TOKEN')
@@ -17,7 +17,7 @@ dp.include_router(user_private_router)
 
 async def main() -> None:
     await bot.delete_webhook(drop_pending_updates=True)
-    await bot.set_my_commands(commands=bot_cmds.private, scope=types.BotCommandScopeAllPrivateChats)
+    await bot.set_my_commands(commands=private, scope=types.BotCommandScopeAllPrivateChats())
     await dp.start_polling(bot, allowed_updates=ALLOWED_UPDATES)
 
 if __name__ == '__main__':

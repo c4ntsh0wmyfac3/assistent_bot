@@ -14,3 +14,7 @@ async def cmd_start(message: types.Message):
 @user_private_router.message(Command("order"))
 async def cmd_order_bot(message: types.Message):
     await message.answer("Опишите ваш бот:")
+
+@user_private_router.message(F.photo)
+async def cmd_echo():
+    await message.answer("Yo! cool picture.")
